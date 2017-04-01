@@ -1,5 +1,7 @@
 import java.util.Scanner;
 public class Main{
+	public static int[][] A;
+	public static int[][] B;
 	public static void main(String[] args) {
 		Main m = new Main();
 		int empleados,piezas;
@@ -8,8 +10,15 @@ public class Main{
 		empleados=tec.nextInt();		
 		System.out.println("Dame el numero de piezas: ");
 		piezas= tec.nextInt();
-		int[][] A = new int[empleados][piezas];
-		int[][] B = new int[piezas][empleados];
+		A = new int[empleados][piezas];
+		B = new int[piezas][empleados];
+		Empleados[] E = new Empleados[empleados];
+		for (int i =0;i<empleados;i++) {
+			E[i] = new Empleados(A,i,piezas);			
+		}
+		for (int j=0;j<empleados;j++) {
+			E[j].start();
+		}
 		m.show(A,empleados,piezas);
 		m.show(B,piezas,empleados);
 
