@@ -1,14 +1,22 @@
 public class Piezas extends Thread{
-	int[][] mat;
-	int empleados;
-	public Piezas(int[][] mat,int empleados){
+	int[][] mat,B;
+	int piezas, empleados;
+	public Piezas(int [][] B,int[][] mat,int empleados,int piezas){
 		this.mat=mat;
 		this.empleados= empleados;
+		this.piezas = piezas;
+		this.B = B;
 	}
+        @Override
 	public void run(){		
 		Main.B=Emp();
 	}
-	public int[][] Emp(){
-		
+	public int [][] Emp(){
+  	    for (int j=0; j < empleados; j++) {
+                B[piezas][j]=mat[j][piezas];
+		System.out.println("B[" + piezas + "]" + "[" + j + "] =" + B[piezas][j]);			
+            //System.out.println("j "+j+"piezas"+piezas);
+        }
+		return B;
 	}
 }

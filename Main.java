@@ -12,21 +12,40 @@ public class Main{
 		piezas= tec.nextInt();
 		A = new int[empleados][piezas];
 		B = new int[piezas][empleados];
+           
 		Empleados[] E = new Empleados[empleados];
 		for (int i =0;i<empleados;i++) {
 			E[i] = new Empleados(A,i,piezas);			
 		}
-		for (int j=0;j<empleados;j++) {
-			E[j].start();
+		for (int k=0;k<empleados;k++) {
+			E[k].start();
 		}
+		try {
+      		  for (int k=0;k<empleados;k++) {
+			E[k].join();}
+                } catch (InterruptedException e) {}
+
+		Piezas[] P = new Piezas[piezas];
+		for(int i=0; i<piezas; i++){
+		    P[i] =new Piezas(B,A,empleados,i);
+		}	
+		for (int k=0;k<piezas;k++) {
+			P[k].start();
+		}
+		try {
+      		  for (int k=0;k<piezas;k++) {
+			P[k].join();}
+                } catch (InterruptedException e) {}
+                System.out.println("La matriz");
 		m.show(A,empleados,piezas);
+                System.out.println("La matriz transpuesta");
 		m.show(B,piezas,empleados);
 
 	}
 	public void show(int[][] r,int ren,int col){
 		for (int i=0;i<ren;i++) {
 			for (int j=0;j<col;j++) {
-				System.out.print(r[i][j]+" ");
+				System.out.print("[" + r[i][j] + "]");
 			}			
 			System.out.println();
 		}
