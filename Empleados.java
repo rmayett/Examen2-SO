@@ -12,7 +12,7 @@ public class Empleados extends Thread{
 	public int[][] Emp(){
 		for (int j=0;j<columnas;j++) {
 			A[renglones][j]=(int) (Math.random()*15);
-			System.out.println("A[" + renglones + "]" + "[" + j + "] =" + A[renglones][j]);			
+			System.out.println(getName()+" A[" + renglones + "]" + "[" + j + "] =" + A[renglones][j]);			
 		}
 		return A;
 	}

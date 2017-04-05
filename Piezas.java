@@ -14,8 +14,7 @@ public class Piezas extends Thread{
 	public int [][] Emp(){
   	    for (int j=0; j < empleados; j++) {
                 B[piezas][j]=mat[j][piezas];
-		System.out.println("B[" + piezas + "]" + "[" + j + "] =" + B[piezas][j]);			
-            //System.out.println("j "+j+"piezas"+piezas);
+		System.out.println(getName()+" B[" + piezas + "]" + "[" + j + "] =" + B[piezas][j]);			            
         }
 		return B;
 	}
