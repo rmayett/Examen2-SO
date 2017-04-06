@@ -2,9 +2,9 @@ import java.util.Scanner;
 public class Main{
 	public static int[][] A;
 	public static int[][] B;
+	public static Main m = new Main();
+	public static int empleados,piezas;
 	public static void main(String[] args) {
-		Main m = new Main();
-		int empleados,piezas;
 		Scanner tec = new Scanner(System.in);
 		System.out.println("Dame el numero de empleados: ");
 		empleados=tec.nextInt();		
@@ -20,21 +20,20 @@ public class Main{
 		for (int k=0;k<empleados;k++) {
 			E[k].start();
 		}
-		try {
+		/*try {
       		  for (int k=0;k<empleados;k++) {
 			E[k].join();}
-                } catch (InterruptedException e) {}
+                } catch (InterruptedException e) {}*/
 
 		Piezas[] P = new Piezas[piezas];
 		for(int i=0; i<piezas; i++){
 		    P[i] =new Piezas(B,A,empleados,i);
-		}	
-		for (int k=0;k<piezas;k++) {
-			P[k].start();
 		}
+		System.out.println("trasponiendo matriz");	
 		try {
       		  for (int k=0;k<piezas;k++) {
-			P[k].join();}
+      		  	P[k].start();
+				P[k].join();}
                 } catch (InterruptedException e) {}
                 System.out.println("La matriz");
 		m.show(A,empleados,piezas);
@@ -42,7 +41,7 @@ public class Main{
 		m.show(B,piezas,empleados);
 
 	}
-	public void show(int[][] r,int ren,int col){
+	public void show(int[][] r,int ren,int col){		
 		for (int i=0;i<ren;i++) {
 			for (int j=0;j<col;j++) {
 				System.out.print("[" + r[i][j] + "]");

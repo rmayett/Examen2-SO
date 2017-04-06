@@ -7,15 +7,13 @@ public class Piezas extends Thread{
 		this.piezas = piezas;
 		this.B = B;
 	}
-        @Override
-	public void run(){		
-		Main.B=Emp();
-	}
-	public int [][] Emp(){
-  	    for (int j=0; j < empleados; j++) {
-                B[piezas][j]=mat[j][piezas];
-		System.out.println(getName()+" B[" + piezas + "]" + "[" + j + "] =" + B[piezas][j]);			            
-        }
-		return B;
+	public void run(){	
+	int j;			
+		 for (j=0; j < empleados; j++) {
+                B[piezas][j]=mat[j][piezas];	            
+        }        
+		System.out.println("Soy hilo: "+getName()+" hice la columna "+piezas);
+		Main.m.show(Main.B,Main.piezas,Main.empleados);
+		System.out.println();
 	}
 }

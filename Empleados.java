@@ -7,14 +7,9 @@ public class Empleados extends Thread{
 		this.columnas=piezas;
 	}
 	public void run(){
-		Main.A=Emp();
-	}
-	public int[][] Emp(){
+		int a=(int) (Math.random()*15);
 		for (int j=0;j<columnas;j++) {
-			A[renglones][j]=(int) (Math.random()*15);
-			System.out.println(getName()+" A[" + renglones + "]" + "[" + j + "] =" + A[renglones][j]);			
-		}
-		return A;
+			A[renglones][j]=a;		
+		}		
 	}
-
 }
